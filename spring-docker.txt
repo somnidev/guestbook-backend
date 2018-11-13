@@ -1,0 +1,205 @@
+Spring Boot
+--------------------
+
+- Video
+    Video2Brain - Microservices mit Spring Boot
+
+- run spring-boot project
+    mvn spring:boot
+  or
+    mvn clean package
+    java -jar target/gs-rest-service-0.1.0.jar
+- server port
+    add to file
+      resources/application.properties
+    the
+      server.port=8081
+    property whereby 0 uses a random port
+
+Rest Controller
+---------------------
+- Simple Controller
+  @RestController
+  public class HelloController {
+    @RequestMapping("/hello")
+    public String sayHello() {
+        return "Hello world!";
+    }
+  }
+
+Guestbook Backend starten
+---------------------------------
+cd ../guestbook-backend/
+mvn clean package
+mvn spring-boot:run
+
+
+Docker
+-----------------------
+1. Docker Toolbox installieren
+-----------------------
+- siehe Docker seite
+
+2. Docker testen
+-----------------------
+- Mit Docker ubuntu starten und hello world ausgeben:
+  $ docker run ubuntu /bin/echo 'Hello world'
+
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /"""""""""""""""""\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+
+
+docker is configured to use the default machine with IP 192.168.99.100
+For help getting started, check out the docs at https://docs.docker.com
+...
+
+3. Welche Images gibt es lokal?
+-------------------------------
+Simons-MBP:dev me$ docker images
+
+4. Welche Docker Container laufen gerade
+----------------------------------------
+- also z.B. ubuntu starten mit...
+
+  $ docker run -d -t ubuntu
+
+- laufende Container auflisten
+
+  $ docker ps
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS         PORTS    NAME
+    968124bee7a2        ubuntu              "/bin/bash"         4 seconds ago       Up 4 seconds            sad_wescoff
+
+5. Docker Container stoppen
+-----------------------------------------
+- verwende NAME oder CONTAINER ID
+
+  $ docker stop sad_wescoff
+  $ docker stop 968124bee7a2
+
+6. Container-Name vergeben
+-----------------------------------------
+- Name my-ubuntu vergeben
+  $ docker run -d -t --name my-ubuntu ubuntu
+
+
+7. Image erstellen und bauen
+-----------------------------------------
+
+- erzeuge Datei 'src/main/docker/Dockerfile' mit Inhalt wie folgt
+
+  FROM java:8
+  VOLUME /tmp
+  ADD guestbook-backend-0.0.1-SNAPSHOT.jar app.jar
+  RUN bash -c 'touch /app.jar'
+  ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
+- erzeuge Eintrag in POM
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.2.3</version>
+                <configuration>
+                    <imageName>${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resources>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resources>
+                    </resources>
+                </configuration>
+            </plugin>
+		</plugins>
+	</build>
+
+- mit maven bauen...
+
+  $ mvn package docker:build
+
+- starten, wieder stoppen und wieder entfernen...
+
+  $ docker run -p 8081:8081 --name frontend -d guestbook-frontend
+  $ docker stop frontend
+  $ docker rm frontend
+
+
+
+8. Seite aufrufen:
+-----------------------------------------
+Beachte:
+docker is configured to use the default machine with IP 192.168.99.100
+
+Also http://192.168.99.100:8081/index.html
+aufrufen!
+
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"First Entry","comment":"This is the first comment","commenter":"abc@gmail.com"}' http://localhost:8080/guestbook/
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Second Entry","comment":"This is the second comment","commenter":"abc@gmail.com"}' http://localhost:8080/guestbook/
+curl -X PUT -H "Content-Type: application/json" -d '{"title":"Third Entry","comment":"This is the third comment","commenter":"abc@gmail.com"}' http://localhost:8080/guestbook/
+
+
+
+
+
+Hallo Herr Kühn,
+
+hier mein aktueller Status
+
+- Form-Solutions
+    Absage erhalten am 16.04
+
+- Siemens:
+    Telefoninterview war am Mittwoch 18. April 2018 14:00.
+    Eher schlecht gelaufen, da ich den Lebenslauf auf Englisch machen sollte.
+    Antwort steht aus.
+
+- Virtual7
+    Hatte ich am  Dienstag, den 17.04.18 um 11:00 Uhr Telefoninterview
+    75% Reisetätigkeit evtl. Nürnmberg, München etc.
+    Einladung zum Vorstellungsgespräch am nächsten Dienstag, den 24.04.18 um 14:00 Uhr in Karlsruhe.
+
+- Inxmail
+    Einladung zum Telefoninterview am Mittwoch, 25.04.2018 um 13:00 Uhr.
+
+- BSPAYONE
+    Telefoninterview: 19. Apr, 14:00 Uhr
+    Absage erhalten.
+
+- Testo
+    Videocall heute Freitag, 20. April 11:00 Uhr
+    bekomme ich nächste Woche Antwort
+
+Viele Grüße,
+Simon Oser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

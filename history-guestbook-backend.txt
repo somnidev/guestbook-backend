@@ -1,0 +1,133 @@
+    1  java
+    2  cd dev/src/java/cartdomainorderstore
+    3  ll
+    4  ls -la
+    5  svn log -l5
+    6  top
+    7  ls -la
+    8  cd Library/
+    9  ls
+   10  ls /Library/ColorSync/Profiles
+   11  open /Library/ColorSync/Profiles
+   12  svn 
+   13  gcc --version
+   14  svn --version
+   15  exit
+   16  ls
+   17  cd dev/src/
+   18  ls
+   19  mkdir notebooks
+   20  mv ../../Testing-Jupyter.ipynb notebooks/
+   21  ruby
+   22  bash
+   23  svn --version
+   24  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   25  brew wget
+   26  brew install wget
+   27  brew install python3
+   28  python3
+   29  python --version
+   30  python3 --version
+   31  pip3 --version
+   32  pip3 install jupyter
+   33  jupyter notebook
+   34  jupyter notebook
+   35  ls
+   36  jupyter notebook
+   37  cd dev/src/notebooks/
+   38  ls
+   39  jupyter notebook
+   40  less .bash_history 
+   41  cp .bash_history jupyter-install.txt
+   42  less jupyter-install.txt 
+   43  jupyter notebook
+   44  ls
+   45  java --vesrion
+   46  java --version
+   47  javac
+   48  java -version
+   49  cd dev/src/
+   50  LS
+   51  cd python/
+   52  cd ..
+   53  cd notebooks/
+   54  ls
+   55  jupyter notebook
+   56  open Library/Application\ Support/
+   57  mvn
+   58  which mvn
+   59  which javac
+   60  javac --version
+   61  javac -v
+   62  javac
+   63  javac -version
+   64  open Library/Application\ Support/Adobe/CameraRaw/CameraProfiles/
+   65  ping -c 3 google.com
+   66  ip link
+   67  maven
+   68  mvn
+   69  java
+   70  java -verion
+   71  java --version
+   72  java -version
+   73  ls -la
+   74  ls .m2
+   75  less .bash_history 
+   76  vm 
+   77  nano
+   78  nano $HOME/.profile
+   79  less .profile 
+   80  cd /Users/me/dev/tools/apache-maven-3.3.9 
+   81  which mvn
+   82  cd dev/
+   83  ls
+   84  cd src/java/
+   85  ls
+   86  cd sb-hello/
+   87  ls
+   88  mvn clean
+   89  mvnw
+   90  mvn clean package
+   91  ls target/
+   92  ls -la target/
+   93  java -jar target/sb-hello-0.0.1-SNAPSHOT.jar
+   94  mvn spring-boot:run
+   95  cd dev/
+   96  ls
+   97  touch dev-help.txt
+   98  which brew
+   99  which vim
+  100  vim -version
+  101  vim dev-help.txt 
+  102  less dev-help.txt 
+  103  vim dev-help.txt 
+  104  vim dev-help.txt 
+  105  cd src/java/boot-hello/
+  106  mvn clean package
+  107  mvn spring-boot:run
+  108  mvn spring-boot:run
+  109  mvn spring-boot:run
+  110  mvn spring-boot:run
+  111  mvn clean install
+  112  mvn spring-boot:run
+  113  mvn spring-boot:run
+  114  pwd
+  115  cd ../guestbook-backend/
+  116  mvn spring-boot:run
+  117  mvn spring-boot:run
+  118  mvn spring-boot:run
+  119  mvn clean package
+  120  mvn spring-boot:run
+  121  mvn spring-boot:run
+  122  mvn spring-boot:run
+  123  mvn spring-boot:run
+  124  mvn spring-boot:run
+  125  mvn spring-boot:run
+  126  history
+  127  pwd
+  128  docker ps
+  129  docker image
+  130  docker images
+  131  ls
+  132  history
+  133  history >>history-guestbook-backend.txt
